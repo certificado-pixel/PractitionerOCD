@@ -119,6 +119,10 @@ git push
 
 ## Editar conteúdo
 
-Todo o texto está em `index.html`, em português, organizado por seções comentadas, nesta ordem: Hero (só a Big Idea, sem foto), O Evento, Sobre o Saulo (com a foto dele), Dados de Mercado, Programação, CenBra, MEC, O que você leva, Local, Inscrição e, por último — depois do botão final de inscrição — a seção "Siga no Instagram". Basta editar o HTML diretamente — não há CMS nem dados externos.
+Todo o texto está em `index.html`, em português, organizado por seções comentadas, nesta ordem: Hero (só a Big Idea, sem foto), O Evento, Sobre o Saulo (com a foto dele), Dados de Mercado, Programação, Benefícios da formação, Público-alvo, CenBra, MEC, O que você leva, Por que se inscrever agora, Local, Inscrição e, por último — depois do botão final de inscrição — a seção "Siga no Instagram". Basta editar o HTML diretamente — não há CMS nem dados externos.
+
+### Seções "Benefícios", "Público-alvo" e "Por que se inscrever agora"
+
+Essas três seções (`#beneficios`, `#publico`, `#por-que-agora`) foram adicionadas a partir do conteúdo dos slides que você mandou para o carrossel do Instagram — trouxe o texto para a página, mas com o mesmo tratamento visual das outras seções (cards com borda dourada, ícones em traço) em vez de replicar o layout do carrossel. Editar é igual às outras seções: mexa direto no `index.html`. Os ícones novos (olho, corrente quebrada, alvo, coroa, maleta, ampulheta, tendência, escudo, pessoas, ticket) foram adicionados ao sprite SVG no topo do `<body>`, seguindo o mesmo padrão dos ícones existentes.
 
 Para trocar as fotos, substitua os arquivos dentro de `assets/` mantendo os mesmos nomes, ou atualize os caminhos correspondentes no `index.html`.
