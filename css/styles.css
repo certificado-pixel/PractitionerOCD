@@ -165,10 +165,10 @@ p { margin: 0 0 14px; color: var(--off-white); }
   padding: 64px 0 40px;
   border-bottom: 1px solid var(--line);
   background-color: var(--black);
-  background-image: url('/assets/hero-masp.svg');
+  background-image: url('/assets/hero-bg.jpg');
   background-repeat: no-repeat;
-  background-position: right center;
-  background-size: auto 105%;
+  background-position: center 62%;
+  background-size: cover;
 }
 
 .hero::before {
@@ -176,8 +176,8 @@ p { margin: 0 0 14px; color: var(--off-white); }
   position: absolute;
   inset: 0;
   background:
-    linear-gradient(90deg, var(--black) 0%, var(--black) 38%, rgba(8,8,10,0.82) 58%, rgba(8,8,10,0.45) 100%),
-    linear-gradient(0deg, var(--black) 0%, rgba(8,8,10,0.1) 25%, rgba(8,8,10,0.1) 75%, var(--black) 100%);
+    linear-gradient(180deg, rgba(8,8,10,0.78) 0%, rgba(8,8,10,0.66) 45%, rgba(8,8,10,0.88) 100%),
+    rgba(8,8,10,0.42);
   pointer-events: none;
 }
 
@@ -185,10 +185,6 @@ p { margin: 0 0 14px; color: var(--off-white); }
   position: relative;
   z-index: 1;
   max-width: 780px;
-}
-
-@media (max-width: 700px) {
-  .hero { background-image: none; }
 }
 
 /* Big Idea headline block */

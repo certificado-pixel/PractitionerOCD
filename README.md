@@ -49,9 +49,7 @@ Os emojis (📅 📍 ✅ ✔) foram trocados por ícones em traço, no mesmo tom
 
 ## Fundo do herói (MASP) e selo na seção "O evento"
 
-**Sobre o fundo do herói:** eu não tenho acesso a nenhuma ferramenta de geração de imagem (Gemini, DALL-E etc.) neste ambiente, nem consigo baixar fotos de bancos externos (Unsplash, Wikimedia) para dentro do projeto — só posso trabalhar com arquivos que você me envia ou construir gráficos eu mesmo em código. Por isso, ao invés de reaproveitar um recorte da sua foto de perfil (como na versão anterior), o fundo do herói agora é uma **ilustração vetorial (SVG)** desenhada à mão, no mesmo estilo dourado/traço fino dos ícones do site: os pilares vermelhos e o volume de vidro suspenso do MASP, sugeridos de forma estilizada, com brilho noturno — sem depender de nenhuma imagem externa. O arquivo é `assets/hero-masp.svg` e sangra a partir da borda direita da tela, com um gradiente escurecendo o restante para manter o texto legível. Em telas pequenas (celular) ele é ocultado — só o texto aparece.
-
-Se você preferir uma **foto real** do MASP (gerada por você no Gemini/outra IA, ou uma foto sua/de banco de imagens com licença que você já tenha), é só substituir `assets/hero-masp.svg` por um arquivo `assets/hero-bg.jpg` (formato retrato, ~410×1400px funciona bem) e trocar no `css/styles.css` a linha `background-image: url('/assets/hero-masp.svg')` pela imagem nova — me envie a imagem que eu faço essa troca para você.
+O fundo do herói é a foto real do MASP à noite que você enviou (`assets/hero-bg.jpg`), cobrindo a seção inteira (`background-size: cover`) com uma camada escura por cima (`.hero::before`, um gradiente preto a ~65–85% de opacidade) para o texto ficar legível — o mesmo tipo de tratamento usado no site de referência que você mostrou. Para trocar a foto, substitua `assets/hero-bg.jpg` mantendo o nome do arquivo (funciona melhor uma imagem larga, formato paisagem). Para ajustar o quão escuro fica, mexa nos valores de opacidade em `.hero::before` no `css/styles.css`.
 
 **Sobre o selo na seção "O evento":** a logo circular do Método OCD (`assets/logo-seal.png`, recortada e com borda suavizada a partir do arquivo que você enviou) agora aparece ao lado do título "São Paulo vai receber a Formação Practitioner OCD", reforçando a marca logo na segunda seção da página. Em telas pequenas ela fica centralizada acima do texto. Para trocar por uma versão mais nítida da logo (o arquivo atual tem resolução limitada), substitua `assets/logo-seal.png` mantendo o formato quadrado com fundo transparente.
 
@@ -65,7 +63,7 @@ ocd-practitioner-landing/
 ├── assets/                # imagens otimizadas para web
 │   ├── logo-selo.png
 │   ├── logo-seal.png     # logo recortada em círculo, usada na seção "O evento"
-│   ├── hero-masp.svg     # ilustração vetorial do MASP, fundo do herói
+│   ├── hero-bg.jpg       # fundo do herói (foto do MASP à noite)
 │   ├── saulo-coelho.jpg
 │   ├── saulo-avatar.jpg  # foto de perfil usada no card do Instagram
 │   ├── og-image.jpg      # imagem de compartilhamento (WhatsApp/redes sociais)
