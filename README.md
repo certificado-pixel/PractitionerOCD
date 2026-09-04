@@ -16,18 +16,48 @@ Coloque ali o link de WhatsApp (`https://wa.me/55SEUNUMERO?text=...`), formulár
 
 Os outros botões da página ("Quero participar" do topo e do herói) apenas rolam a página até a seção final de inscrição — não precisam de alteração.
 
+## Card do Instagram (seção "Siga o Saulo")
+
+A seção também tem um card no estilo Instagram com a grade de conteúdo. Por padrão ele mostra só "Perfil oficial · Método OCD" no lugar dos números, porque não tínhamos acesso ao número real de seguidores/publicações. Se quiser exibir os números reais, edite no topo do `js/script.js`:
+
+```js
+const IG_FOLLOWERS = ""; // <-- ex: "18 mil"
+const IG_POSTS = ""; // <-- ex: "640"
+```
+
+As 6 imagens da grade (`assets/grid/post1.jpg` a `post6.jpg`) foram recortadas a partir do print que você enviou (conteúdo real de Reels/Stories do Saulo). Se quiser trocar por posts mais recentes, basta substituir esses 6 arquivos (formato quadrado, 480×480px) mantendo os mesmos nomes.
+
+## Seção "Dados de mercado"
+
+Uma seção com 4 estatísticas reais sobre comportamento, liderança e o mercado de coaching/desenvolvimento comportamental, cada uma com a fonte citada (BCG, University College London, Gallup e ICF). Todas foram pesquisadas e checadas antes de entrar na página — se quiser trocar por outras, mantenha sempre a fonte visível junto do dado.
+
+## Seção "Por que isso muda tudo" (MEC / CenBra)
+
+Explica por que a certificação (CenBra) e a extensão reconhecida pelo MEC diferenciam o Método OCD de conteúdo motivacional avulso, com um link para o [Centro Brasileiro de PNL](https://centrobrasileirodepnl.com.br). Se algum dado sobre a certificação mudar (carga horária, nome da instituição parceira do MEC etc.), atualize o texto direto em `index.html`, na seção `<section class="section mec" id="credibilidade">`.
+
+## Barra fixa de inscrição
+
+Uma barra fica fixada na parte inferior da tela com o botão "Quero participar", acompanhando o scroll. Ela some enquanto o herói está visível (não precisa duplicar o CTA logo de cara) e some de novo perto da seção final de inscrição e do rodapé (para não duplicar o botão ali). Não precisa configurar nada — é só o mesmo link `#inscricao` dos outros botões do topo.
+
+## Animações de entrada
+
+Os textos, cards e listas aparecem com uma animação suave (fade + leve deslocamento para cima) conforme o visitante rola a página. Isso é feito pela classe `.reveal` no HTML e um `IntersectionObserver` em `js/script.js` — não precisa de nenhuma biblioteca externa. Para animar um novo elemento, basta adicionar `class="reveal"` a ele. Quem tem "reduzir movimento" ativado no sistema não vê a animação (o conteúdo aparece direto), por acessibilidade.
+
 ## Estrutura do projeto
 
 ```
 ocd-practitioner-landing/
-├── index.html          # página única
-├── css/styles.css       # estilos (preto + dourado, fiel à identidade visual do evento)
-├── js/script.js         # comportamento (ano automático no rodapé + link do CTA)
-├── assets/               # imagens otimizadas para web
+├── index.html            # página única
+├── css/styles.css        # estilos (preto + dourado, fiel à identidade visual do evento)
+├── js/script.js          # comportamento (ano automático, link do CTA, stats do Instagram)
+├── assets/                # imagens otimizadas para web
 │   ├── logo-selo.png
 │   ├── saulo-coelho.jpg
-│   ├── og-image.jpg     # imagem de compartilhamento (WhatsApp/redes sociais)
-│   └── favicon-512.png
+│   ├── saulo-avatar.jpg  # foto de perfil usada no card do Instagram
+│   ├── og-image.jpg      # imagem de compartilhamento (WhatsApp/redes sociais)
+│   ├── favicon-512.png
+│   └── grid/              # 6 imagens da grade do card do Instagram
+│       ├── post1.jpg ... post6.jpg
 ├── vercel.json
 └── .gitignore
 ```
@@ -77,6 +107,6 @@ git push
 
 ## Editar conteúdo
 
-Todo o texto está em `index.html`, em português, organizado por seções comentadas (Hero, Sobre o Saulo, O Evento, Programação, Certificações, Local, Inscrição). Basta editar o HTML diretamente — não há CMS nem dados externos.
+Todo o texto está em `index.html`, em português, organizado por seções comentadas, nesta ordem: Hero (só a Big Idea, sem foto), O Evento, Sobre o Saulo (com a foto dele), Dados de Mercado, Programação, CenBra, MEC, O que você leva, Local, Inscrição e, por último — depois do botão final de inscrição — a seção "Siga no Instagram". Basta editar o HTML diretamente — não há CMS nem dados externos.
 
 Para trocar as fotos, substitua os arquivos dentro de `assets/` mantendo os mesmos nomes, ou atualize os caminhos correspondentes no `index.html`.
