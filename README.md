@@ -43,6 +43,14 @@ Uma barra fica fixada na parte inferior da tela com o botão "Quero participar",
 
 Os textos, cards e listas aparecem com uma animação suave (fade + leve deslocamento para cima) conforme o visitante rola a página. Isso é feito pela classe `.reveal` no HTML e um `IntersectionObserver` em `js/script.js` — não precisa de nenhuma biblioteca externa. Para animar um novo elemento, basta adicionar `class="reveal"` a ele. Quem tem "reduzir movimento" ativado no sistema não vê a animação (o conteúdo aparece direto), por acessibilidade.
 
+## Ícones
+
+Os emojis (📅 📍 ✅ ✔) foram trocados por ícones em traço, no mesmo tom dourado do site. Eles ficam definidos uma única vez como um sprite SVG (`<symbol>`) logo no topo do `<body>` em `index.html`, e são usados pelo resto da página assim: `<svg class="icon"><use href="#icon-calendar"/></svg>`. Para adicionar um ícone novo, inclua um novo `<symbol>` no sprite e use o mesmo padrão — não precisa de nenhuma biblioteca de ícones externa.
+
+## Fundo do herói (MASP)
+
+O topo da página tem, ao fundo, um recorte da foto que você enviou mostrando a arquitetura do MASP (o pilar vermelho e o prédio iluminado à noite) — sem o rosto do Saulo, para não repetir o retrato que já aparece na seção "Sobre". A imagem (`assets/hero-bg.jpg`) sangra a partir da borda direita da tela, com um gradiente escurecendo o restante para manter o texto legível. Em telas pequenas (celular) o fundo é ocultado — só o texto aparece — porque não há espaço sobrando para a imagem sem atrapalhar a leitura. Para trocar a imagem, substitua `assets/hero-bg.jpg` (formato retrato, ~410×1400px funciona bem) mantendo o nome do arquivo.
+
 ## Estrutura do projeto
 
 ```
@@ -54,6 +62,7 @@ ocd-practitioner-landing/
 │   ├── logo-selo.png
 │   ├── saulo-coelho.jpg
 │   ├── saulo-avatar.jpg  # foto de perfil usada no card do Instagram
+│   ├── hero-bg.jpg       # fundo do herói (arquitetura do MASP)
 │   ├── og-image.jpg      # imagem de compartilhamento (WhatsApp/redes sociais)
 │   ├── favicon-512.png
 │   └── grid/              # 6 imagens da grade do card do Instagram
