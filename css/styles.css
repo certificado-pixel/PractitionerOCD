@@ -702,6 +702,15 @@ p { margin: 0 0 14px; color: var(--off-white); }
 
 .location-map-link:hover { color: var(--gold-light); border-color: var(--gold-light); }
 
+.location-highlight {
+  margin-top: 12px !important;
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-style: italic;
+  font-size: 1rem !important;
+  color: var(--gold) !important;
+}
+
 /* Final CTA */
 .final-cta {
   border-bottom: none;
