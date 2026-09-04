@@ -47,9 +47,13 @@ Os textos, cards e listas aparecem com uma animação suave (fade + leve desloca
 
 Os emojis (📅 📍 ✅ ✔) foram trocados por ícones em traço, no mesmo tom dourado do site. Eles ficam definidos uma única vez como um sprite SVG (`<symbol>`) logo no topo do `<body>` em `index.html`, e são usados pelo resto da página assim: `<svg class="icon"><use href="#icon-calendar"/></svg>`. Para adicionar um ícone novo, inclua um novo `<symbol>` no sprite e use o mesmo padrão — não precisa de nenhuma biblioteca de ícones externa.
 
-## Fundo do herói (MASP)
+## Fundo do herói (MASP) e selo na seção "O evento"
 
-O topo da página tem, ao fundo, um recorte da foto que você enviou mostrando a arquitetura do MASP (o pilar vermelho e o prédio iluminado à noite) — sem o rosto do Saulo, para não repetir o retrato que já aparece na seção "Sobre". A imagem (`assets/hero-bg.jpg`) sangra a partir da borda direita da tela, com um gradiente escurecendo o restante para manter o texto legível. Em telas pequenas (celular) o fundo é ocultado — só o texto aparece — porque não há espaço sobrando para a imagem sem atrapalhar a leitura. Para trocar a imagem, substitua `assets/hero-bg.jpg` (formato retrato, ~410×1400px funciona bem) mantendo o nome do arquivo.
+**Sobre o fundo do herói:** eu não tenho acesso a nenhuma ferramenta de geração de imagem (Gemini, DALL-E etc.) neste ambiente, nem consigo baixar fotos de bancos externos (Unsplash, Wikimedia) para dentro do projeto — só posso trabalhar com arquivos que você me envia ou construir gráficos eu mesmo em código. Por isso, ao invés de reaproveitar um recorte da sua foto de perfil (como na versão anterior), o fundo do herói agora é uma **ilustração vetorial (SVG)** desenhada à mão, no mesmo estilo dourado/traço fino dos ícones do site: os pilares vermelhos e o volume de vidro suspenso do MASP, sugeridos de forma estilizada, com brilho noturno — sem depender de nenhuma imagem externa. O arquivo é `assets/hero-masp.svg` e sangra a partir da borda direita da tela, com um gradiente escurecendo o restante para manter o texto legível. Em telas pequenas (celular) ele é ocultado — só o texto aparece.
+
+Se você preferir uma **foto real** do MASP (gerada por você no Gemini/outra IA, ou uma foto sua/de banco de imagens com licença que você já tenha), é só substituir `assets/hero-masp.svg` por um arquivo `assets/hero-bg.jpg` (formato retrato, ~410×1400px funciona bem) e trocar no `css/styles.css` a linha `background-image: url('/assets/hero-masp.svg')` pela imagem nova — me envie a imagem que eu faço essa troca para você.
+
+**Sobre o selo na seção "O evento":** a logo circular do Método OCD (`assets/logo-seal.png`, recortada e com borda suavizada a partir do arquivo que você enviou) agora aparece ao lado do título "São Paulo vai receber a Formação Practitioner OCD", reforçando a marca logo na segunda seção da página. Em telas pequenas ela fica centralizada acima do texto. Para trocar por uma versão mais nítida da logo (o arquivo atual tem resolução limitada), substitua `assets/logo-seal.png` mantendo o formato quadrado com fundo transparente.
 
 ## Estrutura do projeto
 
@@ -60,9 +64,10 @@ ocd-practitioner-landing/
 ├── js/script.js          # comportamento (ano automático, link do CTA, stats do Instagram)
 ├── assets/                # imagens otimizadas para web
 │   ├── logo-selo.png
+│   ├── logo-seal.png     # logo recortada em círculo, usada na seção "O evento"
+│   ├── hero-masp.svg     # ilustração vetorial do MASP, fundo do herói
 │   ├── saulo-coelho.jpg
 │   ├── saulo-avatar.jpg  # foto de perfil usada no card do Instagram
-│   ├── hero-bg.jpg       # fundo do herói (arquitetura do MASP)
 │   ├── og-image.jpg      # imagem de compartilhamento (WhatsApp/redes sociais)
 │   ├── favicon-512.png
 │   └── grid/              # 6 imagens da grade do card do Instagram

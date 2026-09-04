@@ -165,10 +165,10 @@ p { margin: 0 0 14px; color: var(--off-white); }
   padding: 64px 0 40px;
   border-bottom: 1px solid var(--line);
   background-color: var(--black);
-  background-image: url('/assets/hero-bg.jpg');
+  background-image: url('/assets/hero-masp.svg');
   background-repeat: no-repeat;
   background-position: right center;
-  background-size: auto 100%;
+  background-size: auto 105%;
 }
 
 .hero::before {
@@ -309,6 +309,40 @@ p { margin: 0 0 14px; color: var(--off-white); }
 .section-head {
   max-width: 60ch;
   margin-bottom: 32px;
+}
+
+/* O Evento — cabeçalho com selo do método */
+.event-top {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 40px;
+  margin-bottom: 32px;
+}
+
+.event-top .section-head {
+  margin-bottom: 0;
+}
+
+.event-seal {
+  width: 158px;
+  height: 158px;
+  flex-shrink: 0;
+  filter: drop-shadow(0 10px 30px rgba(201, 162, 75, 0.18));
+}
+
+@media (max-width: 780px) {
+  .event-top {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 24px;
+  }
+
+  .event-seal {
+    width: 108px;
+    height: 108px;
+    align-self: center;
+  }
 }
 
 /* About Saulo */
