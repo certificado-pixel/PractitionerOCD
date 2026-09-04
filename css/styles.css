@@ -527,13 +527,20 @@ p { margin: 0 0 14px; color: var(--off-white); }
 }
 
 .check-list {
+  display: flex;
+  align-items: flex-start;
+  gap: 28px;
+  max-width: 900px;
+}
+
+.check-col {
   list-style: none;
   margin: 0;
   padding: 0;
-  display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  gap: 12px 28px;
-  max-width: 900px;
+  flex: 1 1 0;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
 }
 
 .check-list li {
@@ -1127,7 +1134,7 @@ p { margin: 0 0 14px; color: var(--off-white); }
   .location-inner { grid-template-columns: 1fr; }
   .takeaway-card { padding: 40px 26px; }
   .takeaway-strong { font-size: 1.35rem; }
-  .check-list { grid-template-columns: 1fr; }
+  .check-list { flex-direction: column; gap: 12px; }
   .footer-inner { flex-direction: column; align-items: flex-start; }
   .stat-grid { grid-template-columns: 1fr; }
   .mec-inner { grid-template-columns: 1fr; }
