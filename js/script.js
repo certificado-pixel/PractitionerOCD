@@ -55,20 +55,38 @@ document.addEventListener("DOMContentLoaded", () => {
   // ------------------------------------------------------------------------
   // Animações de entrada (scroll reveal)
   // Elementos com a classe .reveal aparecem suavemente ao entrar na tela.
+  //
+  // Em celulares, um scroll rápido (flick) costuma fazer vários elementos
+  // cruzarem o gatilho do IntersectionObserver de uma vez só, no mesmo
+  // callback — sem o escalonamento por CSS (:nth-child), isso fazia tudo
+  // "pipocar" junto, sem sensação de entrada suave. Aqui o atraso de cada
+  // elemento é calculado em JS, por ordem dentro do próprio lote que ficou
+  // visível junto — funciona tanto para o scroll lento (um item por vez,
+  // sem lote) quanto para o scroll rápido no mobile (lote inteiro, com
+  // cascata). O gatilho também dispara um pouco mais cedo (rootMargin
+  // menor) para sobrar tempo de a animação tocar antes do elemento passar
+  // do centro da tela.
   // ------------------------------------------------------------------------
   const revealEls = document.querySelectorAll(".reveal");
   if (revealEls.length) {
     if ("IntersectionObserver" in window) {
+      const STEP = 70; // ms entre um item e o próximo dentro do mesmo lote
+      const MAX_DELAY = 5 * STEP; // não deixa a cascata ficar longa demais
+
       const revealObserver = new IntersectionObserver(
         (entries) => {
+          let batchIndex = 0;
           entries.forEach((entry) => {
             if (entry.isIntersecting) {
+              const delay = Math.min(batchIndex * STEP, MAX_DELAY);
+              entry.target.style.transitionDelay = `${delay}ms`;
               entry.target.classList.add("is-visible");
               revealObserver.unobserve(entry.target);
+              batchIndex++;
             }
           });
         },
-        { threshold: 0.15, rootMargin: "0px 0px -8% 0px" }
+        { threshold: 0.08, rootMargin: "0px 0px -4% 0px" }
       );
       revealEls.forEach((el) => revealObserver.observe(el));
     } else {

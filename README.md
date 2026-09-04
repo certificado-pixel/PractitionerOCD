@@ -58,6 +58,7 @@ O fundo do herói é a foto real do MASP à noite que você enviou (`assets/hero
 ```
 ocd-practitioner-landing/
 ├── index.html            # página única
+├── favicon.ico           # ícone da aba do navegador (16/32/48px), lido automaticamente na raiz
 ├── css/styles.css        # estilos (preto + dourado, fiel à identidade visual do evento)
 ├── js/script.js          # comportamento (ano automático, link do CTA, stats do Instagram)
 ├── assets/                # imagens otimizadas para web
@@ -67,12 +68,16 @@ ocd-practitioner-landing/
 │   ├── saulo-coelho.jpg
 │   ├── saulo-avatar.jpg  # foto de perfil usada no card do Instagram
 │   ├── og-image.jpg      # imagem de compartilhamento (WhatsApp/redes sociais)
-│   ├── favicon-512.png
+│   ├── favicon-16.png, favicon-32.png, favicon-48.png, favicon-180.png, favicon-512.png
 │   └── grid/              # 6 imagens da grade do card do Instagram
 │       ├── post1.jpg ... post6.jpg
 ├── vercel.json
 └── .gitignore
 ```
+
+### Favicon (ícone da aba)
+
+O ícone da aba do navegador usa o selo do Método OCD, em vários tamanhos (16, 32, 48, 180 e 512px) — cada navegador escolhe o mais adequado. Também incluí um `favicon.ico` na raiz do projeto, porque alguns navegadores pedem esse arquivo direto em `/favicon.ico`, sem nem olhar as tags `<link>` do `<head>`; se ele não estiver lá, alguns mostram um ícone genérico (globo) em vez do favicon do site, mesmo com tudo certo no HTML. Se quiser trocar a logo no futuro, gere os arquivos novos nesses mesmos tamanhos e nomes e substitua tanto os PNGs em `assets/` quanto o `favicon.ico` na raiz.
 
 Não há build step: é HTML/CSS/JS estático puro. O Vercel detecta isso automaticamente.
 
